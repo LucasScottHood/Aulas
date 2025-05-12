@@ -1,0 +1,152 @@
+@import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
+
+section {min-height: 100vh;}
+
+:root{
+    --CorPrincipal: #30353C;
+    --CorTexto: white;
+    --CorDeDestaque: #852AF5;
+}
+
+body{
+    background-color: var(--CorPrincipal);
+    color: var(--CorTexto);
+}
+
+.container{
+    margin: 0%;
+    padding: 0%;
+    grid-template-areas: 
+    "header"
+    "nav"
+    "section"
+    "footer";
+    box-sizing: border-box;
+    display: grid;
+    gap: 10px;
+    padding:10px;
+    width:clamp(375px,90vw,1600px);
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+}
+
+.oswald-uniquifier {
+    font-family: "Oswald", sans-serif;
+    font-style: normal;
+  }
+
+.header {
+    grid-area: header;
+    text-align: left;
+}
+
+.nav {flex-direction: column;
+    grid-area: nav;
+    display: flex;
+    flex-flow: row nowrap;
+    position: sticky;
+    padding: 50px 0;
+    justify-content: space-around;
+    height: 75px;
+    top: 0px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 25px;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-areas:
+    "Página Inicial"
+    "Fichas";
+}
+
+.nav a{
+    margin: 0px;
+    color: var(--CorTexto);
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: var(--CorDeDestaque);
+}
+
+.nav img{
+    text-align: left;
+    width: 50px;
+    height: 50px;
+}
+
+.section {
+  grid-area: section;
+}
+
+.section h1{
+  font-size: 50px;;
+}
+
+.section h2{
+  font-size: 50px;
+}
+
+.section p{
+  font-size: 20px;
+}
+
+.section img{
+  width: 150px;
+  height: 200px;
+  text-align: center;
+}
+
+.footer{
+  grid-area: footer;
+  font-size: 20px;
+}
+
+.footer input {
+  border-color: var(--CorDeDestaque);
+}
+
+@media (min-width: 700px) {
+    .container {
+      align-items: start;
+      grid-template-columns: 3fr 1fr;
+      grid-template-areas:
+        "header   header"
+        "nav      nav"
+        "section  section"
+        "footer   footer";
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        gap: 10px;
+        padding: 10px;
+    }
+    :root{
+      font-size: 18px;
+    }
+  }
+
+@media (min-width: 900px) {
+    .container {
+      grid-template-columns: 1fr 4fr 1fr;
+      grid-template-areas:
+      "header   header"
+      "nav      nav"
+      "section  section"
+      "footer   footer";
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+      gap: 10px;
+      padding: 10px;
+     }
+
+     .nav{
+      align-items: flex-start;
+      text-align: left;
+      justify-content: space-around;
+    }
+  }
