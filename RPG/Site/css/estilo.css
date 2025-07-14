@@ -1,0 +1,313 @@
+@import url(https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap);
+
+section {min-height: 100vh;}
+
+:root{
+    --CorPrincipal: #30353C;
+    --CorTexto: white;
+    --CorDeDestaque: #852AF5;
+}
+
+body{
+    background-color: var(--CorPrincipal);
+    color: var(--CorTexto);
+}
+
+*{
+    font-family: "Oswald", sans-serif;
+    font-style: normal;
+    margin-right: auto;
+    margin-right: auto;
+    font-size: 1.5rem;
+    scroll-behavior: smooth;
+}
+
+.custom-navbar {
+  background-color: var(--CorPrincipal) !important;
+}
+
+.custom-navbar .nav-link {
+  color: var(--CorTexto) !important;
+  font-size: 1.1rem;
+  margin-left: 10px;
+  transition: color 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover {
+  color: var(--CorDeDestaque) !important;
+}
+
+.custom-navbar .navbar-brand {
+  font-weight: bold;
+  color: var(--CorTexto) !important;
+}
+
+.navbar-toggler {
+  border-color: var(--CorTexto);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.nav {
+    display: flex;
+    justify-content: space-evenly;
+    position: sticky;
+    background-color: var(--CorPrincipal);
+    top: 0px;
+}
+
+.nav a{
+    color: var(--CorTexto);
+    text-decoration: none;
+}
+
+.nav a:hover{
+    color: var(--CorDeDestaque);
+}
+
+.nav img{
+    width: 50px;
+    height: 50px;
+}
+
+@keyframes fade-slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.scroll-animate {
+  animation-name: fade-slide-in;
+  animation-fill-mode: both;
+  animation-duration: 1s;
+}
+
+.section img{
+  width: 32%;
+  height: 100%;
+}
+
+.formimg {
+  display: grid;
+  align-items: center;
+  height: auto;
+  grid-template-columns: 1fr 1fr;
+}
+
+.formimg img {
+  align-self: center;
+  max-width: 275px;
+  width: 100%;
+}
+
+@media (width < 700px) {
+  .formimg {
+    grid-template-columns: 1fr;
+  }
+  .formimg img {
+    max-width: 500px;
+  }
+}
+
+.form{
+  font-size: 20px;
+  display: grid;
+  justify-content: start;
+  justify-items: center;
+  width: 180%;
+  grid-template-columns: 100%;
+}
+
+.form input {
+  border-color: var(--CorDeDestaque);
+  width: 100%;
+}
+
+.form input[type=text] {
+  grid-area: User;
+}
+
+.form input[type=password] {
+  grid-area: Senha;
+}
+
+.form input[type=email] {
+  grid-area: E-Mail;
+}
+
+.form input[type=file] {
+  grid-area: Ficha;
+}
+
+.form input[type=submit] {
+  grid-area: Enviar;
+}
+
+@media (width < 700px) {
+  .form {
+    width: 100%;
+  }
+  .formimg img {
+    width: 500px;
+  }
+}
+
+.fotos{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  height: 900px;
+  grid-template-areas:
+  "OrdemParanormal  OrdemParanormal OrdemParanormal"
+  "CallOfCthulhu    Sacramento      Vampiro"
+  "Dnd              Dnd             Dnd";
+}
+
+.fotos div {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  border: 2px var(--CorDeDestaque);
+}
+
+.imagemA {
+  grid-area: OrdemParanormal;
+  background-image: url("../img/OrdemParanormal.webp");
+}
+
+.imagemB {
+  grid-area: CallOfCthulhu;
+  background-image: url("../img/CallOfCthulhu.webp");
+}
+
+.imagemC {
+  grid-area: Sacramento;
+  background-image: url("../img/Sacramento.webp");
+}
+
+.imagemD {
+  grid-area: Vampiro;
+  background-image: url("../img/VampiroAMascara.webp");
+}
+
+.imagemE {
+  grid-area: Dnd;
+  background-image: url("../img/D&D.webp");
+}
+
+#carouselRPG img {
+  max-height: 500px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.grad {
+  width: 40vw;
+  height: 40vw; 
+  max-width: 300px;
+  max-height: 300px;
+  position: relative;
+  animation-name: simbolos;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  background-image: url("../img/Medo.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@keyframes simbolos {
+  0%   {background-image: url("../img/Medo.webp"); left: 0vw; top: 0vh; }
+  20%  {background-image: url("../img/Sangue.webp"); left: 50vw; top: 0vh; }
+  40%  {background-image: url("../img/Morte.webp"); left: 50vw; top: 50vh; }
+  60%  {background-image: url("../img/Conhecimento.webp"); left: 25vw; top: 25vh; }
+  80%  {background-image: url("../img/Energia.webp"); left: 0vw; top: 50vh; }
+  100% {background-image: url("../img/Medo.webp"); left: 0vw; top: 0vh; }
+}
+
+.containerS {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* ou outra altura desejada */
+  overflow: hidden;
+}
+
+.custom-footer {
+  position: relative;
+  background-color: #2e3239; /* tom escuro */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  font-family: monospace;
+  font-size: 1rem;
+  overflow: hidden;
+}
+
+.custom-footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1.5rem;
+}
+
+.custom-footer a:hover {
+  color: var(--CorDeDestaque, #852AF5);
+}
+
+.footer-icon {
+  width: 32px;
+  height: 32px;
+  margin-left: 1rem;
+}
+
+.footer-left-arrow,
+.footer-right-arrow {
+  position: absolute;
+  top: 0;
+  width: 0;
+  height: 0;
+  border-top: 2.5rem solid transparent;
+  border-bottom: 2.5rem solid transparent;
+}
+
+.footer-left-arrow {
+  left: 0;
+  border-right: 2rem solid #2e3239;
+}
+
+.footer-right-arrow {
+  right: 0;
+  border-left: 2rem solid #2e3239;
+}
+
+@media (min-width: 700px) {
+    :root{
+      font-size: 18px;
+    }
+
+    .form {
+      display: grid;
+      grid-template-columns: 55%;
+      grid-template-areas:
+      "User . Senha"
+      "E-Mail . Ficha"
+      ". Enviar ."
+    }
+  }
+
+@media (min-width: 900px) {
+      :root{
+        font-size: 21px;
+      }
+     }
