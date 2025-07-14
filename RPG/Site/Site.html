@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/estilo.css">
+    <title>Site</title>
+</head>
+<body>
+    <header id="Header">
+       <div class="header">
+            <div>
+                <img src="img/Estrela.webp" alt="Símbolo Primário do Site">
+                Explore o universo do RPG de mesa, criando fichas do zero sobre a maioria dos RPG’s que há pelo mundo todo!
+                <img src="img/Dados.webp" alt="Dados" width="25" height="25">
+            </div>
+        </div>
+    </header>
+    <nav class="navbar navbar-expand-lg custom-navbar sticky-top">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="#Header">
+            <img src="img/Setas.webp" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+          </a>
+          <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="#Header">Início</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Fichas">Fichas</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Sobre">Sobre</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Login">Login</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Galeria">Galeria</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Carrossel">Carrossel</a></li>
+              <li class="nav-item"><a class="nav-link" href="#Animação">Animação</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>            
+    <main>
+        <section id="Fichas" class="section">
+            <h1><b>O que é RPG de Mesa?</b></h1>
+            <p>O RPG de Mesa (Role-playing game, no inglês) é um jogo de interpretação e tabuleiro que você usa diversos dados com várias formas/lados diferentes para criar o rumo da história. Séries como Stranger Things, ou o famigerado desenho dos anos 80, Caverna do Dragão, ou até The Legend of Vox Machina, que é literalmente feita em base com uma campanha de d&d (Dungeons & Dragons) do Critical Role.</p>
+            <p>O RPG de Mesa é constituído pelo Mestre, e pelos seus jogadores. O mestre cria os problemas e a histórias, enquanto os jogadores são os protagonistas que mudam o mundo. Apenas deixe a sua criatividade fluir!</p>
+            <p>Existem várias maneiras de você se divertir jogando esse específico jogo que apenas envolve dados e imaginação. O simples fato de que você pode viver histórias completamente novas, ou histórias que você já viu, mas em um ponto de vista diferente, é a parte mais atrativa e diferente. RPG é uma espécie de exercício de empatia, onde você se coloca na pele de outra pessoa, e vive situações que você (provavelmente) nunca viveria na realidade, e com isso, adquire mais experiência e vivência.</p>
+        </section>
+        <section id="Sobre" class="section scroll-animate">
+            <h2><b>Como o Site opera?</b></h2>
+            <p>O site opera de duas formas específicas:</p>
+            <p>O site em primeira instância serve para ele automatizar a ficha de um personagem seu em específico, com ele criando uma ficha útil com base dos status postos por você.</p>
+            <p>A segunda instância do site lhe oferece desafios para deixar mais complexo e difícil a criação do seu personagem, dando-lhe regras que você deve seguir na sua ficha.</p>
+            <p>Como isso pode ser extremamente complicado para um jogador de primeira viagem nesse universo, a ficha pode ser extremamente complexa, como em D&D, onde você tem que ler umas 600 páginas (o dobro, caso queira mestrar), apenas para criar um personagem, se envolver e deixar o site criar pelo menos uma base, um conceito para você desenvolver ou mudar pra se encaixar no seu gosto pode ser facilitador e aliviador!</p>
+        </section>
+        <section id="Login" class="formimg scroll-animate">
+            <div><form class="form">
+                <fieldset>
+                    <legend>Fale Conosco:</legend>
+                    <label for="N1">User:</label>
+                    <input type="text" id="N1">
+                    <label for="N2">Senha:</label>
+                    <input type="password" id="N2">
+                    <label for="N3">E-Mail:</label>
+                    <input type="email" id="N3">
+                    <label for="N4">Sua Ficha:</label>
+                    <input type="file" id="N4">
+                    <label for="N5"></label>
+                    <input type="submit" id="N5">
+                </fieldset>
+            </form>
+            </div>
+            <picture>
+                <source media="(width > 950px)" srcset="img/MutantesEMalfeitores.webp">
+                <source media="(width > 700px)" srcset="img/Worlds-GalaxiesInPeril.webp">
+                <img src="img/3DeT-MegaCity.webp" alt="Exemplos de RPG de Mesa" loading="lazy">
+            </picture>
+        </section>
+        <h3><b>Exemplos de RPG de Mesa:</b></h3>
+        <section id="Galeria" class="fotos scroll-animate">
+            <div class="imagemA"></div>
+            <div class="imagemB"></div>
+            <div class="imagemC"></div>
+            <div class="imagemD"></div>
+            <div class="imagemE"></div>
+        </section>
+        <section id="Carrossel" class="scroll-animate">
+            <section class="container my-5">
+                <div id="carouselRPG" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#carouselRPG" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#carouselRPG" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#carouselRPG" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                  </div>
+              
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="img/O_Segredo_na_Floresta_Ep_Final.webp" class="d-block w-100" alt="Ordem Paranormal">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="img/Desconjura3Fo_Ep_Final.webp" class="d-block w-100" alt="Call of Cthulhu">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="img/Calamidade_Ep_12_Twitch.webp" class="d-block w-100" alt="Vampiro: A Máscara">
+                    </div>
+                  </div>
+              
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselRPG" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselRPG" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                  </button>
+                </div>
+                <table class="table table-striped table-dark">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Duração</th>
+                        <th scope="col">Temporada</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Equipe E</td>
+                        <td>3:38:36</td>
+                        <td>2</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td>Kian</td>
+                        <td>4:27:02</td>
+                        <td>3</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td>Olhos</td>
+                        <td>4:28:52</td>
+                        <td>4</td>
+                      </tr>
+                    </tbody>
+                  </table>
+              </section>              
+        </section>
+        <section id="Animação" class="scroll-animate">
+            <div class="containerS">
+                <div class="grad"></div>
+            </div>              
+        </section>
+    </main>
+    <footer class="custom-footer">
+      <div class="footer-left-arrow"></div>
+          
+        <div class="footer-content">
+          <a href="#Redes">Redes Sociais</a>
+          <a href="#Contato">Contato</a>
+          <a href="#Chat">Chat</a>
+          <a href="#Downloads">Downloads</a>
+        </div>
+          
+        <img src="img/Estrela.webp" alt="Símbolo" class="footer-icon">
+        <div class="footer-right-arrow"></div>
+      </footer>          
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
