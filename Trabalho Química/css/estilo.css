@@ -1,0 +1,16 @@
+:root{
+    --CorDeFundo: #0A74FF;
+    --CorDoTexto: #FFFFFF;
+}
+
+*{
+    font-family: "DM Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: weight;
+    font-style: normal, italic;
+}
+
+body{
+    background-color: var(--CorDeFundo);
+    color: var(--CorDoTexto);
+}
