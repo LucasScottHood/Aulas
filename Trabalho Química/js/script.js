@@ -83,7 +83,7 @@ function RespostaCerta(selected)
                 document.getElementById("Resultado").innerHTML = "<p>🎉 Parabéns, você concluiu o questionário 🧐!</p>";
             }
         }, 
-        3500);
+        5500);
     } 
     else 
     {
@@ -92,3 +92,4 @@ function RespostaCerta(selected)
 }
 
 window.onload = PerguntaAtual;
+
