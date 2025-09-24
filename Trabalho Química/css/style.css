@@ -1,7 +1,7 @@
 :root {
-  --gan-blue: #0a74ff;
-  --bg: #0b132b;
-  --text: #eaf5ff;
+  --CorPrincipal: #0a74ff;
+  --CorSecundária: #0b132b;
+  --CorDoTexto: #eaf5ff;
 }
 
 * {
@@ -12,8 +12,8 @@
 
 body {
   font-family: Arial, sans-serif;
-  background: linear-gradient(180deg, var(--bg), #000);
-  color: var(--text);
+  background: linear-gradient(180deg, var(--CorSecundária), #000);
+  color: var(--CorDoTexto);
   line-height: 1.8;
   padding: 0;
   margin: 0;
@@ -21,10 +21,22 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
+
 header {
-  text-align: center;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
   padding: 1.25rem 1rem;
-  background: var(--gan-blue);
+  background: var(--CorPrincipal);
   color: #fff;
 }
 
@@ -39,18 +51,19 @@ section {
   padding-bottom: 0.25rem;
 }
 
- Títulos */
-h1 { margin-bottom: 0.35rem; line-height: 1.1; }
+h1 { margin-bottom: 0.35rem; line-height: 1.1; 
+
+}
 h2 {
   margin: 0.75rem 0 0.6rem 0;
   line-height: 1.15;
   font-size: 1.25rem;
 }
-
+figure
 p {
   margin: 0 0 1rem 0;
   line-height: 1.85; 
-  color: var(--text);
+  color: var(--CorDoTexto);
 }
 
 ul {
@@ -68,14 +81,7 @@ figure {
   text-align: center;
 }
 figure img {
-  max-width: 50%;
-  height: auto;
-  border-radius: 8px;
-  display: block;
-  margin: 0 auto;
-}
-img {
-  max-width: 100%;
+  max-width: 500px;
   height: auto;
   border-radius: 8px;
   display: block;
@@ -125,4 +131,3 @@ footer {
   p { line-height: 1.6; margin-bottom: 0.9rem; }
   ul li { margin: 0.5rem 0; }
 }
-
