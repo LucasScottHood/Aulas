@@ -67,6 +67,13 @@ figure {
   margin: 1rem 0;
   text-align: center;
 }
+figure img {
+  max-width: 50%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  margin: 0 auto;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -118,3 +125,4 @@ footer {
   p { line-height: 1.6; margin-bottom: 0.9rem; }
   ul li { margin: 0.5rem 0; }
 }
+
