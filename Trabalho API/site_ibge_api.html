@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Consulta IBGE</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background: #1e1e1e;
+        color: #fff;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        background: #333;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 15px 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ff5757;
+    }
+
+    main {
+        padding: 20px;
+        min-height: 60vh;
+    }
+
+    footer {
+        background: #1e1e1e;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 40px;
+    }
+    </style>
+</head>
+<body>
+  <header>
+    Este acessa uma única API.
+    <nav>
+      <ul>
+          <li><a href="/site.html">Outro Site</a></li>
+          <li><a href="#API">IBGE Informações</a></li>
+      </ul>
+  </nav>
+  </header>
+  <main>
+    <section id="API">
+      <label for="cidade">Município</label><br>
+      <input type="text" id="cidade"><br>
+      <input type="button" value="Enviar" id="enviar"><br>
+      <div id="mostra"></div>
+    </section>
+  </main>
+  <footer>
+    API
+  </footer>
+  
+    <script>
+      document.querySelector('#enviar').addEventListener('click', consulta);
+      
+      async function consulta(){
+          const painel = document.querySelector('#mostra');
+          const nome = document.querySelector('#cidade').value.trim();
+      
+          if(nome === ""){
+              painel.innerHTML = "Digite um município.";
+              return;
+          }
+      
+          const nomeFormatado = encodeURIComponent(nome);
+    
+          const url = "https://servicodados.ibge.gov.br/api/v1/localidades/municipios?nome=" + nomeFormatado;
+      
+          try {
+              const resp = await fetch(url);
+              const lista = await resp.json();
+      
+              if(!lista || lista.length === 0){
+                  painel.innerHTML = "Município não encontrado.";
+                  return;
+              }
+      
+              const municipio = lista.find(m => m.nome.toLowerCase() === nome.toLowerCase());
+      
+              if(!municipio){
+                  painel.innerHTML = "Município não encontrado.";
+                  return;
+              }
+      
+              mostraMunicipio(municipio);
+      
+          } catch (e){
+              painel.innerHTML = "Erro ao consultar a API.";
+          }
+      }
+      
+      function mostraMunicipio(m){
+          const painel = document.querySelector('#mostra');
+      
+          let texto = `<h1>Dados do Município</h1>`;
+          texto += `Nome: ${m.nome}<br>`;
+          texto += `UF: ${m.microrregiao.mesorregiao.UF.sigla}<br>`;
+          texto += `ID IBGE: ${m.id}<br>`;
+      
+          painel.innerHTML = texto;
+      }
+      </script>                    
+</body>
+</html>
