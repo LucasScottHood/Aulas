@@ -1,2 +1,213 @@
-<label for=""></label>
-<input type="text">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 API's</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    header {
+        background: #1e1e1e;
+        color: #fff;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 24px;
+    }
+
+    nav {
+        background: #333;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+        padding: 15px 20px;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    nav ul li a:hover {
+        color: #ff5757;
+    }
+
+    main {
+        padding: 20px;
+        min-height: 60vh;
+    }
+
+    section {
+        background: #f5f5f5;       
+        padding: 30px 20px;        
+        margin: 30px auto;         
+        border-radius: 8px;        
+        max-width: 900px;          
+        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    section p {
+        font-size: 16px;
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 10px;
+    }
+    section button {
+        background: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 18px;
+        cursor: pointer;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: 0.3s;
+    }
+
+    section button:hover {
+        background: #ff5757;
+    }
+
+    footer {
+        background: #1e1e1e;
+        color: #fff;
+        text-align: center;
+        padding: 15px 0;
+        margin-top: 40px;
+    }
+    </style>
+</head>
+<body>
+<header>
+    <p>Este acessa três APIs diferentes.</p>
+    <nav>
+        <ul>
+            <li><a href="site_ibge_api.html">Outro Site</a></li>
+            <li><a href="#API1">RPG de Mesa API</a></li>
+            <li><a href="#API2">Wizard World API</a></li>
+            <li><a href="#API3">Futebol API</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <section id="API1">
+        <h2>RPG de Mesa API</h2>
+        <p>Digite o ID de um jogo para buscar informações diretamente do BoardGameGeek.</p>
+        <label>ID do jogo:</label><br>
+        <input type="number" id="bggId">
+        <button onclick="consultaBGG()">Consultar</button>
+
+        <div id="bggResultado" class="resultado"></div>
+    </section>
+
+    <section id="API2">
+        <h2>Wizard World API</h2>
+        <p>Busca personagens do universo Harry Potter.</p>
+        <button onclick="consultaWizard()">Listar personagens</button>
+        <div id="wizardResultado" class="resultado"></div>
+    </section>
+
+    <section id="API3">
+        <h2>Vídeos de Jogos de Futebol</h2>
+        <p>Busca highlights de partidas recentes.</p>
+        <button onclick="consultaScorebat()">Buscar vídeos</button>
+        <div id="scoreResultado" class="resultado"></div>
+    </section>
+</main>
+<footer>
+    API's
+</footer>
+<script>
+function consultaBGG() {
+    const id = document.getElementById('bggId').value;
+    const url = `https://boardgamegeek.com/xmlapi2/thing?id=${id}`;
+
+    fetch(url)
+        .then(resp => resp.text())
+        .then(str => (new window.DOMParser()).parseFromString(str, "text/xml"))
+        .then(data => {
+            let name = data.querySelector('name[value]')?.getAttribute('value') || 'Não encontrado';
+            let desc = data.querySelector('description')?.textContent || 'Sem descrição disponível';
+
+            document.getElementById('bggResultado').innerHTML =
+                `<b>Nome:</b> ${name}<br><br><b>Descrição:</b><br> ${desc.substring(0,400)}...`;
+        })
+        .catch(e => document.getElementById('bggResultado').innerHTML = 'Erro na consulta.');
+}
+
+function consultaWizard() {
+    const url = "https://wizard-world-api.herokuapp.com/Characters";
+    const resultado = document.getElementById('wizardResultado');
+
+    resultado.innerHTML = "Carregando...";
+
+    fetch(url)
+        .then(async r => {
+            if (!r.ok) {
+                let text = await r.text();
+                throw new Error(`HTTP ${r.status}: ${text || 'Sem mensagem'}`);
+            }
+            return r.json();
+        })
+        .then(lista => {
+            if (!Array.isArray(lista)) {
+                resultado.innerHTML = "A API respondeu algo inesperado.";
+                return;
+            }
+
+            let html = "<ul>";
+            lista.slice(0, 10).forEach(p => {
+                html += `<li><b>${p.firstName || ''} ${p.lastName || ''}</b> — ${p.house || 'Sem Casa'}</li>`;
+            });
+            html += "</ul>";
+
+            resultado.innerHTML = html;
+        })
+        .catch(err => {
+            resultado.innerHTML = `
+                <b>Erro ao acessar API:</b><br>
+                <pre>${err.message}</pre>
+            `;
+        });
+}
+
+function consultaScorebat() {
+    const url = "https://www.scorebat.com/video-api/v3/";
+
+    fetch(url)
+        .then(r => r.json())
+        .then(js => {
+            let jogos = js.response.slice(0, 5);
+            let html = '';
+
+            jogos.forEach(j => {
+                html += `<div style='margin-bottom:15px;'>
+                    <b>${j.title}</b><br>
+                    <div>${j.videos[0].embed}</div>
+                </div>`;
+            });
+
+            document.getElementById('scoreResultado').innerHTML = html;
+        })
+        .catch(() => document.getElementById('scoreResultado').innerHTML = 'Erro ao buscar vídeos.');
+}
+</script>
+</body>
+</html>
